@@ -12,6 +12,7 @@ hpack==4.1.0
 Hypercorn==0.17.3
 hyperframe==6.1.0
 idna==3.10
+pillow==11.2.1
 priority==2.0.0
 requests==2.32.4
 six==1.17.0
