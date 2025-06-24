@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <a class="navbar-brand" href="#">Post Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+     <a href="{% url 'post_list' %}"class="btn btn-primary mx-2">Home</a>
+    </div>
+</nav>
+<div class="form-container mx-3 my-3">
+<form class="form text-white" method="post">
+ {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" name="username">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+  </div>
+    {% comment %} {% if messages %}
+           {% for message in messages %}
+             {% if message.tags == 'error' %}
+                 <h4 class="h4 mx-3 my-3" style="color:red; margin:20px; font-weight:120; font-size: 14px;">{{message}}</h4>
+              {% else %}
+                  <h4 class="h4 mx-3 my-3" style="color:red; margin:20px; font-weight:120; font-size:14px;"></h4>{{message}}</h4>
+             {% endif %}
+           {% endfor %}
+         {% endif %} {% endcomment %}
+         {% if messages %}
+           {% for message in messages %}
+             {% if message.tags == 'error' %}
+                 <div class="alert alert-danger" role="alert">{{ message }}</div>
+              {% else %}
+              <div class="alert alert-danger" role="alert">{{ message }}</div>
+              {% endif %}
+           {% endfor %}
+        {% endif %}
+  <button type="submit" class="btn btn-primary">Register</button>
+</form>
+  <p class="h5 text-white">Already have an account ? <a href="{% url 'login_view' %}">Log in</a></p>
+</div>
+{% endblock body %}

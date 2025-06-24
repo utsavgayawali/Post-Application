@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+
+{% endblock css %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <a class="navbar-brand" href="#">Post Application</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-success my-2 my-sm-0 mx-1" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+ {% if post %}
+ <h2 class="h2 text-white  mx-4 my-3"> Edit your  Post </h2>
+ {% else %}
+ <h2 class="h2 text-white  mx-3 my-3"> Create a Post </h2>
+ {% endif %}
+ <a href="{% url 'post_list' %}" class="a mx-4 "> Back to Post</a>
+
+ 
+<div class="form-wrapper">
+<form method="post" class="form text-white mx-3" enctype="multipart/form-data">
+ {% csrf_token %}
+  {% if post %}
+   <div class="form-group">
+    <label for="exampleFormControlInput1">Edit title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter a title for Post" name="title" value="{{post.title}}">
+  </div>
+ {% else %}
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Title</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter a title for Post" name="title">
+  </div>
+ {% endif %}
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Select an image for post</label>
+     {% if post.image %}
+        <p>Current Image: <br><img src="{{ post.image.url }}" alt="{{ post.title }}" style="max-width: 200px; height: auto;"></p>
+        <p><small>Upload new image to replace</small></p>
+        {% endif %}
+    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image" >
+  </div>
+  {% if post %}
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1"> Edit Content</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content" >{{post.content}}</textarea>
+  </div>
+  
+  {% else %}
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Content</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+  </div>
+  {% endif %}
+  
+  {% if post %}
+  <button type="submit"class="btn btn-primary my-3">Conform</button>
+  {% else %}
+  <button type="submit"class="btn btn-primary my-3">Create</button>
+  {% endif %}
+</form>
+</div>
+{% endblock body %}
+
+{% comment %} here all if part inside form  ===> for edit view
+            and all part of else is for ===> create_post 
+
+            we are using same templet for both view so we do this 
+ {% endcomment %}
