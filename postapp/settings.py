@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['post-application-5.onrender.com','localhost','127.0.0.1']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -38,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'cloudinary',
-    'cloudinary_storage',
+    # 'cloudinary',
+    # 'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'postapp.urls'
@@ -125,8 +124,8 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-ROOT_URLCONF = 'postapp.urls'
+# STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+# ROOT_URLCONF = 'postapp.urls'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
@@ -141,19 +140,19 @@ LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT = '/home/post_list'
 LOGOUT_REDIRECT = '/home/'
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('MY_CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': os.environ.get('MY_CLOUDINARY_API_KEY'),
-    'API_SECRET': os.environ.get('MY_CLOUDINARY_API_SECRET'),
-}
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': os.environ.get('MY_CLOUDINARY_CLOUD_NAME'),
+#     'API_KEY': os.environ.get('MY_CLOUDINARY_API_KEY'),
+#     'API_SECRET': os.environ.get('MY_CLOUDINARY_API_SECRET'),
+# }
 
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-STORAGES = {
-    "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
-    },
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+# STORAGES = {
+#     "default": {
+#         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
+#     },
+#     "staticfiles": {
+#         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+#     },
+# }
