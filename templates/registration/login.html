@@ -3,9 +3,7 @@
 
 {% block body %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-  <a class="navbar-brand" href="{% url 'post_list' %}">
-    <img src="{% static 'images/logo.png' %}" alt="Post Application Logo" style="height: 40px; margin-right: 10px;">
-  </a>
+  <a class="navbar-brand" href="{% url 'post_list' %}">Post Application</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -19,6 +17,10 @@
   </div>
 </nav>
 
+
+<p style="color:gray; font-size:14px;">
+  This is a demo Django project created for educational purposes. It does not collect or store personal information. 
+</p>
 <div class="form-container mx-3 my-3">
 <form class="form text-white" method="post" action="{% url 'post_list' %}">
  {% csrf_token %}
