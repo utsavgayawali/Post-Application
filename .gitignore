@@ -1,0 +1,3 @@
+postappenv/
+venv/
+db.sqlite3
