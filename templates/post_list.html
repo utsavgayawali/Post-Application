@@ -13,7 +13,7 @@
       </li>
     </ul>
     <form  method="GET" class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search by title" aria-label="Search" value="{{query}}" name="q">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search by title" aria-label="Search" value="{{query| default_if_none:''}}" name="q">
       <button class="btn btn-success my-2 my-sm-0 mx-1" type="submit">Search</button>
     </form> 
     {% if user.is_authenticated %}
