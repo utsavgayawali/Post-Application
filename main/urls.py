@@ -3,6 +3,7 @@ from django.urls import path,include
 from main import views
 
 urlpatterns = [
+    # path('admin/', admin.site.urls),
     path('admin/', admin.site.urls),
     path('post_list/', views.post_list, name='post_list'),
     path('post_create/', views.post_create, name='post_create'),
