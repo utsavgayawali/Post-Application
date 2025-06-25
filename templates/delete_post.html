@@ -17,7 +17,7 @@
   </div>
 </nav>
 <h2 class="h2 text-center text-white mx-3 my-3"> Are You Sure want to delete Post </h2>
- <form method="post" action=" {% url 'post_list' %}">
+ <form method="post">
     {% csrf_token %}
     <button type = "submit" class="btn btn-danger mx-3 my-3">Delete</button>
     <button type = "submit" class="btn btn-success mx-3 my-3">Cancel</button>

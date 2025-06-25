@@ -26,7 +26,7 @@
 
  
 <div class="form-wrapper">
-<form method="post" class="form text-white mx-3" enctype="multipart/form-data" action="{% url 'post_list' %}">
+<form method="post" class="form text-white mx-3" enctype="multipart/form-data">
  {% csrf_token %}
   {% if post %}
    <div class="form-group">
