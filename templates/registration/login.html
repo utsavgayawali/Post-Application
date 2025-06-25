@@ -3,7 +3,9 @@
 
 {% block body %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-  <a class="navbar-brand" href="#">Post Application</a>
+  <a class="navbar-brand" href="{% url 'post_list' %}">
+    <img src="{% static 'images/logo.png' %}" alt="Post Application Logo" style="height: 40px; margin-right: 10px;">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -13,16 +15,12 @@
       <li class="nav-item active">
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
     <a href="{% url 'post_list' %}"class="btn btn-primary mx-2">Home</a>
   </div>
 </nav>
 
 <div class="form-container mx-3 my-3">
-<form class="form text-white" method="post">
+<form class="form text-white" method="post" action="{% url 'post_list' %}">
  {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">Username</label>

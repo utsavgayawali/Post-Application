@@ -5,20 +5,17 @@
 {% endblock css %}
 {% block body %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-  <a class="navbar-brand" href="#">Post Application</a>
+  <a class="navbar-brand" href="{% url 'post_list' %}">
+    <img src="{% static 'images/logo.png' %}" alt="Post Application Logo" style="height: 40px; margin-right: 10px;">
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-success my-2 my-sm-0 mx-1" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 
@@ -31,7 +28,7 @@
 
  
 <div class="form-wrapper">
-<form method="post" class="form text-white mx-3" enctype="multipart/form-data">
+<form method="post" class="form text-white mx-3" enctype="multipart/form-data" action="{% url 'post_list' %}">
  {% csrf_token %}
   {% if post %}
    <div class="form-group">
